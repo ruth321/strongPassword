@@ -13,20 +13,27 @@ func main() {
 	var pw string
 	fmt.Print("Enter password: ")
 	fmt.Scan(&pw)
+	fmt.Println()
+	fxPw := make([]byte, 6)
 
-	if len(pw) < 6 || checkSpecChar(pw) ||  {
+	for true {
 
+		if len(pw) > 5 && checkSpecChar(pw) {
+			fmt.Println("Your password is strong")
+			//break
+		} else {
+			fmt.Println("Your password isn't strong.\nYou should add at least 1")
+		}
 	}
-
 }
 
-func checkSpecChar(str string) (ch bool) {
-	for i := 0; i < len(str); i++ {
-		if !strings.Contains("!@#$%^&*()-+_", string(str[i])) {
-			ch = false
+func checkSpecChar(s string) (ch bool) {
+	for i := 0; i < len(s); i++ {
+		if strings.Contains("!@#$%^&*()-+_", string(s[i])) {
+			ch = true
 			return ch
 		}
 	}
-	ch = true
+	ch = false
 	return ch
 }

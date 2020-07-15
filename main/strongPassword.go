@@ -14,7 +14,7 @@ func main() {
 	//Инициализация и ввод пароля
 	var pw string
 	fmt.Print("Enter password: ")
-	fmt.Scan(&pw)
+	_, _ = fmt.Scan(&pw)
 
 	//Инициализация примера безопасного пароля и присваивание ему значения pw в ASCII коде
 	pwEx := []byte(pw)
@@ -72,7 +72,7 @@ func main() {
 
 			//Ввод нового пароля
 			fmt.Print("\nEnter password: ")
-			fmt.Scan(&pw)
+			_, _ = fmt.Scan(&pw)
 			fmt.Println()
 
 			//Присваивание примеру пароля значения pw в ASCII коде
@@ -82,7 +82,6 @@ func main() {
 }
 
 //Функция проверяет строку s на наличие хотя бы 1 специального символа
-//Если он есть, функция возвращает значение true
 func checkSpecChar(s string) (b bool) {
 	for i := 0; i < len(s); i++ {
 		if strings.Contains(random.Symbols, string(s[i])) {
@@ -95,7 +94,6 @@ func checkSpecChar(s string) (b bool) {
 }
 
 //Функция проверяет строку s на наличие хотя бы 1 заглавной буквы из английского алфавита
-//Если она есть, функция возвращает значение true
 func checkUpCase(s string) (b bool) {
 	for i := 0; i < len(s); i++ {
 		if s[i] > 64 && s[i] < 91 {
@@ -108,7 +106,6 @@ func checkUpCase(s string) (b bool) {
 }
 
 //Функция проверяет строку s на наличие хотя бы 1 строчной буквы из английского алфавита
-//Если она есть, функция возвращает значение true
 func checkLowCase(s string) (b bool) {
 	for i := 0; i < len(s); i++ {
 		if s[i] > 96 && s[i] < 123 {
@@ -121,7 +118,6 @@ func checkLowCase(s string) (b bool) {
 }
 
 //Функция проверяет строку s на наличие хотя бы 1 цифры.
-//Если она есть, функция возвращает значение true
 func checkDigit(s string) (b bool) {
 	for i := 0; i < len(s); i++ {
 		if strings.Contains("0123456789", string(s[i])) {
